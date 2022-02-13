@@ -20,7 +20,7 @@ CREATE TABLE e_commerce.customer
 
 CREATE TABLE e_commerce.category
 (
-	cat_id INT PRIMARY KEY,
+    cat_id INT PRIMARY KEY,
     cat_name VARCHAR(30) NULL DEFAULT NULL
 );
 
