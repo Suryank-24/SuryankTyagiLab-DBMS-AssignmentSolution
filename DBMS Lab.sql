@@ -3,7 +3,7 @@ USE e_commerce;
 
 CREATE TABLE e_commerce.supplier
 (
-	supp_id INT PRIMARY KEY AUTO_INCREMENT,
+    supp_id INT PRIMARY KEY AUTO_INCREMENT,
     supp_name VARCHAR(30) NOT NULL,
     supp_city VARCHAR(40) NOT NULL,
     supp_phone VARCHAR(10) NOT NULL
@@ -11,7 +11,7 @@ CREATE TABLE e_commerce.supplier
 
 CREATE TABLE e_commerce.customer
 (
-	cus_id INT PRIMARY KEY AUTO_INCREMENT,
+    cus_id INT PRIMARY KEY AUTO_INCREMENT,
     cus_name VARCHAR(30) NOT NULL,
     cus_phone VARCHAR(10) NOT NULL,
     cus_city VARCHAR(40) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE e_commerce.category
 
 CREATE TABLE e_commerce.product
 (
-	pro_id INT PRIMARY KEY,
+    pro_id INT PRIMARY KEY,
     pro_name VARCHAR(30) NULL DEFAULT NULL,
     pro_desc VARCHAR(60) NULL DEFAULT NULL,
     cat_id INT NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE e_commerce.product
 
 CREATE TABLE e_commerce.productdetails
 (
-		prod_id INT PRIMARY KEY,
+	prod_id INT PRIMARY KEY,
         pro_id INT NOT NULL,
         supp_id INT NOT NULL,
         prod_price INT NOT NULL,
@@ -45,23 +45,23 @@ CREATE TABLE e_commerce.productdetails
 
 CREATE TABLE e_commerce.`order`
 (
-	ord_id INT PRIMARY KEY,
+    ord_id INT PRIMARY KEY,
     ord_amount INT NOT NULL,
     ord_date DATE,
-    cus_id	INT NOT NULL,
+    cus_id INT NOT NULL,
     prod_id INT NOT NULL,
-	FOREIGN KEY(cus_id) REFERENCES customer(cus_id),
-	FOREIGN KEY(prod_id) REFERENCES productdetails(prod_id)
+    FOREIGN KEY(cus_id) REFERENCES customer(cus_id),
+    FOREIGN KEY(prod_id) REFERENCES productdetails(prod_id)
 );
 
 CREATE TABLE e_commerce.ratings
 (
-	rat_id INT PRIMARY KEY,
+    rat_id INT PRIMARY KEY,
     cus_id INT NOT NULL,
     supp_id INT NOT NULL,
     rat_ratstars INT NOT NULL,
     FOREIGN KEY(supp_id) REFERENCES supplier(supp_id),
-	FOREIGN KEY(cus_id) REFERENCES customer(cus_id)
+    FOREIGN KEY(cus_id) REFERENCES customer(cus_id)
 );
 
 INSERT INTO e_commerce.supplier VALUES
